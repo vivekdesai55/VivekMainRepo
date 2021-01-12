@@ -1,8 +1,18 @@
 package weatherDataProducer
 
 import org.apache.kafka.clients.producer.{KafkaProducer, ProducerRecord}
+import org.apache.kafka.clients.admin.AdminClient
 import java.util.Properties
 import scala.io.Source.fromURL
+import org.slf4j.LoggerFactory
+import org.apache.kafka.clients.admin.AdminClient
+import kafka.admin.AdminUtils
+import org.I0Itec.zkclient.ZkClient
+import kafka.utils.ZKStringSerializer$
+import kafka.utils.ZkUtils
+import org.I0Itec.zkclient.ZkConnection
+import java.util.Properties
+import java.util.Collections
 
 class weatherDataProducer(url: String, dataList: List[String]) {
   
@@ -26,6 +36,16 @@ class weatherDataProducer(url: String, dataList: List[String]) {
       .toList
     json.filter(isin).mkString("""{""", ",", """}""")
   }
+  
+  def isTopicExists(server: String, zookeeperPort: Int, topicName: String): Boolean = {
+    
+  val sessionTimeOutInMs: Int = 15 * 1000
+  val connectionTimeOutInMs: Int = 10 * 1000
+  val zkClient: ZkClient = new ZkClient(server.concat(":").concat(zookeeperPort.toString), sessionTimeOutInMs, connectionTimeOutInMs, ZKStringSerializer$.MODULE$)
+  val zkUtils: ZkUtils = new ZkUtils(zkClient, new ZkConnection(server.concat(":").concat("2181")), false)
+  AdminUtils.topicExists(zkUtils, topicName) 
+    
+  }
   // Function to write JSON data to Kafka Topic
   def writeToKafka(topic: String, serverName: String, port: Int): Unit = {
     //Define properties required by kafka
@@ -34,7 +54,10 @@ class weatherDataProducer(url: String, dataList: List[String]) {
     props.put("key.serializer","org.apache.kafka.common.serialization.StringSerializer")
     props.put("value.serializer","org.apache.kafka.common.serialization.StringSerializer")
     //Create a KafkaProducer which will have (Key, Value) pair
+
     val producer:  KafkaProducer[String, String] = new KafkaProducer[String, String](props)
+    
+      
     //Create record of (Key, Value) pair, which placed in configured kafka topics
     println(formatJSONData(getAPIData()))
     val record: ProducerRecord[String, String] = new ProducerRecord[String, String](topic,"dataJSON", formatJSONData(getAPIData()))
