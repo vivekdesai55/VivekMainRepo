@@ -1,0 +1,158 @@
+D:\ecl_WeatherData\dataProducer\target>scala -cp D:\ecl_WeatherData\dataProducer\target\dataProducer-0.0.1-SNAPSHOT.jar;D:\ecl_WeatherData\dataProducer\target\dataProducer-0.0.1-SNAPSHOT-jar-with-dependencies.jar weatherDataProducer.produceWeatherData
+log4j:WARN No appenders could be found for logger (org.apache.kafka.clients.producer.ProducerConfig).
+log4j:WARN Please initialize the log4j system properly.
+log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more info.
+{"lat":12.9716,"lon":77.5946,"timezone":"Asia/Kolkata","dt":1610367216,"sunrise":1610327685,"sunset":1610368789,"temp":298.36,"humidity":69,"dew_point":292.27,"visibility":6000,"wind_speed":1.54}
+{"lat":12.9716,"lon":77.5946,"timezone":"Asia/Kolkata","dt":1610367216,"sunrise":1610327685,"sunset":1610368789,"temp":298.36,"humidity":69,"dew_point":292.27,"visibility":6000,"wind_speed":1.54}
+{"lat":12.9716,"lon":77.5946,"timezone":"Asia/Kolkata","dt":1610367216,"sunrise":1610327685,"sunset":1610368789,"temp":298.36,"humidity":69,"dew_point":292.27,"visibility":6000,"wind_speed":1.54}
+
+C:\spark\bin>spark-submit.cmd --class dataPipeline.consumeWeatherData --packages org.apache.spark:spark-sql-kafka-0-10_2.11:2.3.1 D:\ecl_WeatherData\performance\target\weatherData-0.0.1.jar
+Ivy Default Cache set to: C:\Users\admin\.ivy2\cache
+The jars for the packages stored in: C:\Users\admin\.ivy2\jars
+:: loading settings :: url = jar:file:/C:/spark/jars/ivy-2.4.0.jar!/org/apache/ivy/core/settings/ivysettings.xml
+org.apache.spark#spark-sql-kafka-0-10_2.11 added as a dependency
+:: resolving dependencies :: org.apache.spark#spark-submit-parent-9737dc31-b4c2-4eab-b659-4daf9593ae4f;1.0
+        confs: [default]
+        found org.apache.spark#spark-sql-kafka-0-10_2.11;2.3.1 in spark-list
+        found org.apache.kafka#kafka-clients;0.10.0.1 in spark-list
+        found net.jpountz.lz4#lz4;1.3.0 in spark-list
+        found org.xerial.snappy#snappy-java;1.1.2.6 in spark-list
+        found org.slf4j#slf4j-api;1.7.21 in spark-list
+        found org.spark-project.spark#unused;1.0.0 in spark-list
+:: resolution report :: resolve 564ms :: artifacts dl 62ms
+        :: modules in use:
+        net.jpountz.lz4#lz4;1.3.0 from spark-list in [default]
+        org.apache.kafka#kafka-clients;0.10.0.1 from spark-list in [default]
+        org.apache.spark#spark-sql-kafka-0-10_2.11;2.3.1 from spark-list in [default]
+        org.slf4j#slf4j-api;1.7.21 from spark-list in [default]
+        org.spark-project.spark#unused;1.0.0 from spark-list in [default]
+        org.xerial.snappy#snappy-java;1.1.2.6 from spark-list in [default]
+        ---------------------------------------------------------------------
+        |                  |            modules            ||   artifacts   |
+        |       conf       | number| search|dwnlded|evicted|| number|dwnlded|
+        ---------------------------------------------------------------------
+        |      default     |   6   |   0   |   0   |   0   ||   6   |   0   |
+        ---------------------------------------------------------------------
+:: retrieving :: org.apache.spark#spark-submit-parent-9737dc31-b4c2-4eab-b659-4daf9593ae4f
+        confs: [default]
+        0 artifacts copied, 6 already retrieved (0kB/29ms)
+2021-01-11 17:53:59 WARN  NativeCodeLoader:62 - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2021-01-11 17:53:59 INFO  SparkContext:54 - Running Spark version 2.3.1
+2021-01-11 17:53:59 INFO  SparkContext:54 - Submitted application: WeatherData
+2021-01-11 17:53:59 INFO  SecurityManager:54 - Changing view acls to: admin
+2021-01-11 17:53:59 INFO  SecurityManager:54 - Changing modify acls to: admin
+2021-01-11 17:53:59 INFO  SecurityManager:54 - Changing view acls groups to:
+2021-01-11 17:53:59 INFO  SecurityManager:54 - Changing modify acls groups to:
+2021-01-11 17:53:59 INFO  SecurityManager:54 - SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(admin); groups with view permissions: Set(); users  with modify permissions: Set(admin); groups with modify permissions: Set()
+2021-01-11 17:53:59 INFO  Utils:54 - Successfully started service 'sparkDriver' on port 52089.
+2021-01-11 17:53:59 INFO  SparkEnv:54 - Registering MapOutputTracker
+2021-01-11 17:53:59 INFO  SparkEnv:54 - Registering BlockManagerMaster
+2021-01-11 17:53:59 INFO  BlockManagerMasterEndpoint:54 - Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+2021-01-11 17:53:59 INFO  BlockManagerMasterEndpoint:54 - BlockManagerMasterEndpoint up
+2021-01-11 17:53:59 INFO  DiskBlockManager:54 - Created local directory at C:\Users\admin\AppData\Local\Temp\blockmgr-a0000118-03fe-4fca-b243-ea9e26f9066f
+2021-01-11 17:53:59 INFO  MemoryStore:54 - MemoryStore started with capacity 366.3 MB
+2021-01-11 17:53:59 INFO  SparkEnv:54 - Registering OutputCommitCoordinator
+2021-01-11 17:54:00 INFO  log:192 - Logging initialized @2766ms
+2021-01-11 17:54:00 INFO  Server:346 - jetty-9.3.z-SNAPSHOT
+2021-01-11 17:54:00 INFO  Server:414 - Started @2826ms
+2021-01-11 17:54:00 INFO  AbstractConnector:278 - Started ServerConnector@4632cfc{HTTP/1.1,[http/1.1]}{0.0.0.0:4040}
+2021-01-11 17:54:00 INFO  Utils:54 - Successfully started service 'SparkUI' on port 4040.
+2021-01-11 17:54:00 INFO  ContextHandler:781 - Started o.s.j.s.ServletContextHandler@1dbb650b{/jobs,null,AVAILABLE,@Spark}
+2021-01-11 17:54:00 INFO  ContextHandler:781 - Started o.s.j.s.ServletContextHandler@59429fac{/jobs/json,null,AVAILABLE,@Spark}
+2021-01-11 17:54:00 INFO  ContextHandler:781 - Started o.s.j.s.ServletContextHandler@57aa341b{/jobs/job,null,AVAILABLE,@Spark}
+2021-01-11 17:54:00 INFO  ContextHandler:781 - Started o.s.j.s.ServletContextHandler@4ae263bf{/jobs/job/json,null,AVAILABLE,@Spark}
+2021-01-11 17:54:00 INFO  ContextHandler:781 - Started o.s.j.s.ServletContextHandler@7103ab0{/stages,null,AVAILABLE,@Spark}
+2021-01-11 17:54:00 INFO  ContextHandler:781 - Started o.s.j.s.ServletContextHandler@19ccca5{/stages/json,null,AVAILABLE,@Spark}
+2021-01-11 17:54:00 INFO  ContextHandler:781 - Started o.s.j.s.ServletContextHandler@769d513{/stages/stage,null,AVAILABLE,@Spark}
+2021-01-11 17:54:00 INFO  ContextHandler:781 - Started o.s.j.s.ServletContextHandler@3f92c349{/stages/stage/json,null,AVAILABLE,@Spark}
+2021-01-11 17:54:00 INFO  ContextHandler:781 - Started o.s.j.s.ServletContextHandler@769a58e5{/stages/pool,null,AVAILABLE,@Spark}
+2021-01-11 17:54:00 INFO  ContextHandler:781 - Started o.s.j.s.ServletContextHandler@55f8669d{/stages/pool/json,null,AVAILABLE,@Spark}
+2021-01-11 17:54:00 INFO  ContextHandler:781 - Started o.s.j.s.ServletContextHandler@6be25526{/storage,null,AVAILABLE,@Spark}
+2021-01-11 17:54:00 INFO  ContextHandler:781 - Started o.s.j.s.ServletContextHandler@42435b98{/storage/json,null,AVAILABLE,@Spark}
+2021-01-11 17:54:00 INFO  ContextHandler:781 - Started o.s.j.s.ServletContextHandler@66ba7e45{/storage/rdd,null,AVAILABLE,@Spark}
+2021-01-11 17:54:00 INFO  ContextHandler:781 - Started o.s.j.s.ServletContextHandler@70e02081{/storage/rdd/json,null,AVAILABLE,@Spark}
+2021-01-11 17:54:00 INFO  ContextHandler:781 - Started o.s.j.s.ServletContextHandler@9d200de{/environment,null,AVAILABLE,@Spark}
+2021-01-11 17:54:00 INFO  ContextHandler:781 - Started o.s.j.s.ServletContextHandler@511505e7{/environment/json,null,AVAILABLE,@Spark}
+2021-01-11 17:54:00 INFO  ContextHandler:781 - Started o.s.j.s.ServletContextHandler@646811d6{/executors,null,AVAILABLE,@Spark}
+2021-01-11 17:54:00 INFO  ContextHandler:781 - Started o.s.j.s.ServletContextHandler@15fdd1f2{/executors/json,null,AVAILABLE,@Spark}
+2021-01-11 17:54:00 INFO  ContextHandler:781 - Started o.s.j.s.ServletContextHandler@cb0f763{/executors/threadDump,null,AVAILABLE,@Spark}
+2021-01-11 17:54:00 INFO  ContextHandler:781 - Started o.s.j.s.ServletContextHandler@7573e12f{/executors/threadDump/json,null,AVAILABLE,@Spark}
+2021-01-11 17:54:00 INFO  ContextHandler:781 - Started o.s.j.s.ServletContextHandler@51b1a8f6{/static,null,AVAILABLE,@Spark}
+2021-01-11 17:54:00 INFO  ContextHandler:781 - Started o.s.j.s.ServletContextHandler@31da6b2e{/,null,AVAILABLE,@Spark}
+2021-01-11 17:54:00 INFO  ContextHandler:781 - Started o.s.j.s.ServletContextHandler@61c76850{/api,null,AVAILABLE,@Spark}
+2021-01-11 17:54:00 INFO  ContextHandler:781 - Started o.s.j.s.ServletContextHandler@121c54fa{/jobs/job/kill,null,AVAILABLE,@Spark}
+2021-01-11 17:54:00 INFO  ContextHandler:781 - Started o.s.j.s.ServletContextHandler@4390f46e{/stages/stage/kill,null,AVAILABLE,@Spark}
+2021-01-11 17:54:00 INFO  SparkUI:54 - Bound SparkUI to 0.0.0.0, and started at http://192.168.56.1:4040
+2021-01-11 17:54:00 INFO  SparkContext:54 - Added JAR file:///C:/Users/admin/.ivy2/jars/org.apache.spark_spark-sql-kafka-0-10_2.11-2.3.1.jar at spark://192.168.56.1:52089/jars/org.apache.spark_spark-sql-kafka-0-10_2.11-2.3.1.jar with timestamp 1610367840352
+2021-01-11 17:54:00 INFO  SparkContext:54 - Added JAR file:///C:/Users/admin/.ivy2/jars/org.apache.kafka_kafka-clients-0.10.0.1.jar at spark://192.168.56.1:52089/jars/org.apache.kafka_kafka-clients-0.10.0.1.jar with timestamp 1610367840353
+2021-01-11 17:54:00 INFO  SparkContext:54 - Added JAR file:///C:/Users/admin/.ivy2/jars/org.spark-project.spark_unused-1.0.0.jar at spark://192.168.56.1:52089/jars/org.spark-project.spark_unused-1.0.0.jar with timestamp 1610367840353
+2021-01-11 17:54:00 INFO  SparkContext:54 - Added JAR file:///C:/Users/admin/.ivy2/jars/net.jpountz.lz4_lz4-1.3.0.jar at spark://192.168.56.1:52089/jars/net.jpountz.lz4_lz4-1.3.0.jar with timestamp 1610367840355
+2021-01-11 17:54:00 INFO  SparkContext:54 - Added JAR file:///C:/Users/admin/.ivy2/jars/org.xerial.snappy_snappy-java-1.1.2.6.jar at spark://192.168.56.1:52089/jars/org.xerial.snappy_snappy-java-1.1.2.6.jar with timestamp 1610367840357
+2021-01-11 17:54:00 INFO  SparkContext:54 - Added JAR file:///C:/Users/admin/.ivy2/jars/org.slf4j_slf4j-api-1.7.21.jar at spark://192.168.56.1:52089/jars/org.slf4j_slf4j-api-1.7.21.jar with timestamp 1610367840358
+2021-01-11 17:54:00 INFO  SparkContext:54 - Added JAR file:/D:/ecl_WeatherData/performance/target/weatherData-0.0.1.jar at spark://192.168.56.1:52089/jars/weatherData-0.0.1.jar with timestamp 1610367840358
+2021-01-11 17:54:00 INFO  Executor:54 - Starting executor ID driver on host localhost
+2021-01-11 17:54:00 INFO  Utils:54 - Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 52120.
+2021-01-11 17:54:00 INFO  NettyBlockTransferService:54 - Server created on 192.168.56.1:52120
+2021-01-11 17:54:00 INFO  BlockManager:54 - Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+2021-01-11 17:54:00 INFO  BlockManagerMaster:54 - Registering BlockManager BlockManagerId(driver, 192.168.56.1, 52120, None)
+2021-01-11 17:54:00 INFO  BlockManagerMasterEndpoint:54 - Registering block manager 192.168.56.1:52120 with 366.3 MB RAM, BlockManagerId(driver, 192.168.56.1, 52120, None)
+2021-01-11 17:54:00 INFO  BlockManagerMaster:54 - Registered BlockManager BlockManagerId(driver, 192.168.56.1, 52120, None)
+2021-01-11 17:54:00 INFO  BlockManager:54 - Initialized BlockManager: BlockManagerId(driver, 192.168.56.1, 52120, None)
+2021-01-11 17:54:00 INFO  ContextHandler:781 - Started o.s.j.s.ServletContextHandler@8a98f38{/metrics/json,null,AVAILABLE,@Spark}
+root
+ |-- key: binary (nullable = true)
+ |-- value: binary (nullable = true)
+ |-- topic: string (nullable = true)
+ |-- partition: integer (nullable = true)
+ |-- offset: long (nullable = true)
+ |-- timestamp: timestamp (nullable = true)
+ |-- timestampType: integer (nullable = true)
+
+root
+ |-- lat: double (nullable = true)
+ |-- lon: double (nullable = true)
+ |-- timezone: string (nullable = true)
+ |-- datetime: string (nullable = true)
+ |-- sunrise: string (nullable = true)
+ |-- sunset: string (nullable = true)
+ |-- temp: double (nullable = true)
+ |-- humidity: integer (nullable = true)
+ |-- dew_point: double (nullable = true)
+ |-- visibility: integer (nullable = true)
+ |-- wind_speed: double (nullable = true)
+ |-- partationdate: string (nullable = true)
+
+-------------------------------------------
+Batch: 0
+-------------------------------------------
++---+---+--------+--------+-------+------+----+--------+---------+----------+----------+-------------+
+|lat|lon|timezone|datetime|sunrise|sunset|temp|humidity|dew_point|visibility|wind_speed|partationdate|
++---+---+--------+--------+-------+------+----+--------+---------+----------+----------+-------------+
++---+---+--------+--------+-------+------+----+--------+---------+----------+----------+-------------+
+
+-------------------------------------------
+Batch: 1
+-------------------------------------------
++-------+-------+------------+-------------------+-------------------+-------------------+------+--------+---------+----------+----------+-------------+
+|    lat|    lon|    timezone|           datetime|            sunrise|             sunset|  temp|humidity|dew_point|visibility|wind_speed|partationdate|
++-------+-------+------------+-------------------+-------------------+-------------------+------+--------+---------+----------+----------+-------------+
+|12.9716|77.5946|Asia/Kolkata|2021-01-11 17:54:31|2021-01-11 06:44:45|2021-01-11 18:09:49|298.04|      73|   292.87|     10000|      1.54|   2021-01-11|
++-------+-------+------------+-------------------+-------------------+-------------------+------+--------+---------+----------+----------+-------------+
+
+-------------------------------------------
+Batch: 2
+-------------------------------------------
++-------+-------+------------+-------------------+-------------------+-------------------+------+--------+---------+----------+----------+-------------+
+|    lat|    lon|    timezone|           datetime|            sunrise|             sunset|  temp|humidity|dew_point|visibility|wind_speed|partationdate|
++-------+-------+------------+-------------------+-------------------+-------------------+------+--------+---------+----------+----------+-------------+
+|12.9716|77.5946|Asia/Kolkata|2021-01-11 17:54:31|2021-01-11 06:44:45|2021-01-11 18:09:49|298.04|      73|   292.87|     10000|      1.54|   2021-01-11|
++-------+-------+------------+-------------------+-------------------+-------------------+------+--------+---------+----------+----------+-------------+
+
+-------------------------------------------
+Batch: 3
+-------------------------------------------
++-------+-------+------------+-------------------+-------------------+-------------------+------+--------+---------+----------+----------+-------------+
+|    lat|    lon|    timezone|           datetime|            sunrise|             sunset|  temp|humidity|dew_point|visibility|wind_speed|partationdate|
++-------+-------+------------+-------------------+-------------------+-------------------+------+--------+---------+----------+----------+-------------+
+|12.9716|77.5946|Asia/Kolkata|2021-01-11 17:54:31|2021-01-11 06:44:45|2021-01-11 18:09:49|298.04|      73|   292.87|     10000|      1.54|   2021-01-11|
++-------+-------+------------+-------------------+-------------------+-------------------+------+--------+---------+----------+----------+-------------+
